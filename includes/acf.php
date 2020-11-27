@@ -1,4 +1,5 @@
 <?php
+if( function_exists('acf_add_local_field_group') ):
 acf_add_local_field_group(array(
 	'key' => 'group_5faa72aaaec05',
 	'title' => 'PTC Preis',
@@ -320,4 +321,11 @@ acf_add_local_field_group(array(
 	'active' => true,
 	'description' => '',
 ));
+else:
+  function my_error_notice() {
+     echo '<div class="error notice"><p>Funktioniert!</p></div>';
+  }
+  add_action( 'admin_notices', 'my_error_notice1' );
+endif;
+
 ?>

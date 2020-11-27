@@ -2,7 +2,7 @@
 /*
 Plugin Name: PTC Preisliste
 Description: none
-Version: 0.3.8
+Version: 0.3.9
 Author: Marcel Kaiser
 Author URI: https://www.ptc-telematik.de/
 */
@@ -19,8 +19,8 @@ $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
  */
 
 // Define path and URL to the ACF plugin.
-define( 'MY_ACF_PATH', get_stylesheet_directory() . '/includes/acf/' );
-define( 'MY_ACF_URL', get_stylesheet_directory_uri() . '/includes/acf/' );
+define( 'MY_ACF_PATH', plugin_dir_url( __FILE__ ) . '/includes/acf/' );
+define( 'MY_ACF_URL', plugin_dir_url( __FILE__ ) . '/includes/acf/' );
 
 // Include the ACF plugin.
 include_once( MY_ACF_PATH . 'acf.php' );
@@ -39,9 +39,6 @@ include_once('includes/post_type.php');
 /**
  * Advanced Custom Fields
  */
-if( function_exists('acf_add_local_field_group') ):
-   include('includes/acf.php');
-endif;
-
+include('includes/acf.php');
 
 ?>
