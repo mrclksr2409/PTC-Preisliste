@@ -8,11 +8,10 @@ Author URI: https://www.ptc-telematik.de/
 */
 
 require 'plugin-update-checker/plugin-update-checker.php';
-
-$myUpdateChecker = new Puc_v4p10_Vcs_PluginUpdateChecker(
-    new Puc_v4p10_Vcs_GitLabApi('https://github.com/mrclksr2409/PTC-Preisliste'),
-    __FILE__,
-    'PTCpreisliste'
+$myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
+	'https://github.com/mrclksr2409/PTC-Preisliste',
+	__FILE__,
+	'PTCpreisliste'
 );
 
 /**
