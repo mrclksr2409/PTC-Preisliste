@@ -2,7 +2,7 @@
 /*
 Plugin Name: PTC Preisliste
 Description: none
-Version: 0.3.6
+Version: 0.3.7
 Author: Marcel Kaiser
 Author URI: https://www.ptc-telematik.de/
 */
@@ -34,7 +34,7 @@ function my_acf_settings_url( $url ) {
 // (Optional) Hide the ACF admin menu item.
 add_filter('acf/settings/show_admin', 'my_acf_settings_show_admin');
 function my_acf_settings_show_admin( $show_admin ) {
-    return false;
+    //return false;
 }
 
 /**
