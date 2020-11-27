@@ -2,7 +2,7 @@
 /*
 Plugin Name: PTC Preisliste
 Description: none
-Version: 0.3.1
+Version: 0.3.2
 Author: Marcel Kaiser
 Author URI: https://www.ptc-telematik.de/
 */
@@ -18,12 +18,6 @@ $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
  * Post Type
  */
 include_once('includes/post_type.php');
-
-/**
- * Taxonomy
- */
-
-include_once('includes/taxonomy.php');
 
 /**
  * Advanced Custom Fields
