@@ -13,6 +13,8 @@ function create_preisliste_shortcode($atts) {
 		'preisliste'
 	);
 
+  setlocale (LC_ALL, 'de_DE@euro', 'de_DE', 'de', 'ge');
+
 	$id = $atts['id'];
 	$field = $atts['field'];
   $mwst = $atts['mwst'];
@@ -20,36 +22,32 @@ function create_preisliste_shortcode($atts) {
   $post_fields = get_fields( $id );
 
   if($field == "title") {
-    echo get_the_title( $id );
+    return get_the_title( $id );
   }
   elseif ($field == "beschreibung") {
-    echo $post_fields[ $field ];
+    return "<p>" . $post_fields[ $field ] . "</p>";
   }
   elseif ($field == "gruppe") {
-    echo $post_fields[ $field ];
+    return $post_fields[ $field ];
   }
   elseif ($field == "12_monate" || $field == "24_monate" || $field == "36_monate" || $field == "48_monate" || $field == "60_monate") {
-    $number = floatval(str_replace(',', '.', str_replace('.', '', $post_fields['abo'][ $field ])));
-
     if($mwst == "inkl") {
-      echo $number * 1.16;
+      return money_format('%.2n', $post_fields['abo'][ $field ] * 1.16) . " €";
     }
     else {
-      echo $number;
+      return money_format('%.2n', $post_fields['abo'][ $field ]) . " €";
     }
   }
   elseif ($field == "monatlich" || $field == "einmalig") {
-    $number = floatval(str_replace(',', '.', str_replace('.', '', $post_fields['kaufen'][ $field ])));
-
     if($mwst == "inkl") {
-      echo $number * 1.16;
+      return money_format('%.2n', $post_fields['kaufen'][ $field ] * 1.16) . " €";
     }
     else {
-      echo $number;
+      return money_format('%.2n', $post_fields['kaufen'][ $field ]) . " €";
     }
   }
   else {
-    echo "Es konnten keine Informationen gefunden werden!";
+    return "Es konnten keine Informationen gefunden werden!";
   }
 
 }
