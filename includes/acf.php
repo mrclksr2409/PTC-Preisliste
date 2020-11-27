@@ -322,11 +322,10 @@ acf_add_local_field_group(array(
 	'active' => true,
 	'description' => '',
 ));
-
+else:
+  function general_admin_notice(){
+    echo '<div class="notice notice-error is-dismissible"><p><strong>PTC Preisliste:</strong> Bitte installieren Sie ACF PRO.</p></div>';
+  }
+  add_action('admin_notices', 'general_admin_notice');
 endif;
-
-function general_admin_notice(){
-  echo '<div class="notice notice-warning is-dismissible"><p>This notice appears on the settings page.</p></div>';
-}
-add_action('admin_notices', 'general_admin_notice');
 ?>
