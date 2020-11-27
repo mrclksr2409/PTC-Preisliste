@@ -2,7 +2,7 @@
 /*
 Plugin Name: PTC Preisliste
 Description: none
-Version: 0.4.1
+Version: 0.4.2
 Author: Marcel Kaiser
 Author URI: https://www.ptc-telematik.de/
 */

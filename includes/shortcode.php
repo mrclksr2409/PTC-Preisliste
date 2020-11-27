@@ -7,6 +7,7 @@ function create_preisliste_shortcode($atts) {
 		array(
 			'id' => '',
 			'field' => 'title',
+      'mwst' => 'zzgl',
 		),
 		$atts,
 		'preisliste'
@@ -14,6 +15,7 @@ function create_preisliste_shortcode($atts) {
 
 	$id = $atts['id'];
 	$field = $atts['field'];
+  $mwst = $atts['mwst'];
 
   $post_fields = get_fields( $id );
 
@@ -27,10 +29,27 @@ function create_preisliste_shortcode($atts) {
     echo $post_fields[ $field ];
   }
   elseif ($field == "12_monate" || $field == "24_monate" || $field == "36_monate" || $field == "48_monate" || $field == "60_monate") {
-    echo $post_fields['abo'][ $field ];
+    $number = floatval(str_replace(',', '.', str_replace('.', '', $post_fields['abo'][ $field ])));
+
+    if($mwst == "inkl") {
+      echo $number * 1.16;
+    }
+    else {
+      echo $number;
+    }
   }
   elseif ($field == "monatlich" || $field == "einmalig") {
-    echo $post_fields['kaufen'][ $field ];
+    $number = floatval(str_replace(',', '.', str_replace('.', '', $post_fields['kaufen'][ $field ])));
+
+    if($mwst == "inkl") {
+      echo $number * 1.16;
+    }
+    else {
+      echo $number;
+    }
+  }
+  else {
+    echo "Es konnten keine Informationen gefunden werden!";
   }
 
 }
