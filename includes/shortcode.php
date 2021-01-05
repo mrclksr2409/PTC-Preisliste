@@ -30,7 +30,7 @@ function create_preisliste_shortcode($atts) {
   }
   elseif ($field == "12_monate" || $field == "24_monate" || $field == "36_monate" || $field == "48_monate" || $field == "60_monate") {
     if($mwst == "inkl") {
-      return money_format('%.2n', $post_fields['abo'][ $field ] * 1.16);
+      return money_format('%.2n', $post_fields['abo'][ $field ] * 1.19);
     }
     else {
       return money_format('%.2n', $post_fields['abo'][ $field ]);
@@ -38,7 +38,7 @@ function create_preisliste_shortcode($atts) {
   }
   elseif ($field == "monatlich" || $field == "einmalig") {
     if($mwst == "inkl") {
-      return money_format('%.2n', $post_fields['kaufen'][ $field ] * 1.16);
+      return money_format('%.2n', $post_fields['kaufen'][ $field ] * 1.19);
     }
     else {
       return money_format('%.2n', $post_fields['kaufen'][ $field ]);
